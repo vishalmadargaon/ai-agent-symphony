@@ -1,0 +1,29 @@
+{
+  "name": "ai-agent-symphony-server",
+  "version": "1.0.0",
+  "description": "Asynchronous backend for AI Agent Symphony",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "tsx watch src/index.ts",
+    "dev:worker": "tsx watch src/worker.ts",
+    "start:server": "node dist/index.js",
+    "start:worker": "node dist/worker.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.7.0",
+    "bullmq": "^5.41.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^5.6.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

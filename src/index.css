@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Geist:wght@300..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Geist", "Inter", sans-serif;
+  
+  --color-canvas: #030307;
+  --color-panel: rgba(9, 9, 11, 0.35);
+  --color-glass-border: rgba(255, 255, 255, 0.07);
+  
+  --color-lime-glow: #84cc16;
+  --color-cyan-glow: #06b6d4;
+  --color-pink-glow: #ec4899;
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15), inset 0 0 8px rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(6, 182, 212, 0.45), inset 0 0 16px rgba(6, 182, 212, 0.3);
+    border-color: rgba(6, 182, 212, 0.75);
+  }
+}
+
+/* Base custom resets */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #030307;
+  color: #f8fafc;
+  font-family: "Geist", "Inter", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 3D Noise texture overlay */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ReactFlow overrides */
+.react-flow__background {
+  background-color: transparent;
+}
+
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  border: 2px solid #030307 !important;
+  box-shadow: 0 0 8px currentColor;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.35);
+}
+
+/* Custom Glowing Wires (Dimensional Tendril Paths) */
+.react-flow__edge-path {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px var(--wire-glow, rgba(99, 102, 241, 0.4)));
+  transition: stroke 0.3s, filter 0.3s;
+}
+
+.react-flow__edge.active .react-flow__edge-path {
+  stroke-dasharray: 8 4;
+  animation: flow-dash 1.2s infinite linear;
+  stroke-width: 3.5;
+}
+
+/* Liquid Glass presentation layer */
+.liquid-glass {
+  background: rgba(9, 9, 11, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lime-glass {
+  box-shadow: 0 0 25px rgba(132, 204, 22, 0.06), inset 0 0 10px rgba(132, 204, 22, 0.04);
+}
+.lime-glass:hover {
+  border-color: rgba(132, 204, 22, 0.35);
+  box-shadow: 0 0 30px rgba(132, 204, 22, 0.16), inset 0 0 12px rgba(132, 204, 22, 0.08);
+}
+
+.cyan-glass {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.06), inset 0 0 10px rgba(6, 182, 212, 0.04);
+}
+.cyan-glass:hover {
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.16), inset 0 0 12px rgba(6, 182, 212, 0.08);
+}
+
+.pink-glass {
+  box-shadow: 0 0 25px rgba(236, 72, 153, 0.06), inset 0 0 10px rgba(236, 72, 153, 0.04);
+}
+.pink-glass:hover {
+  border-color: rgba(236, 72, 153, 0.35);
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.16), inset 0 0 12px rgba(236, 72, 153, 0.08);
+}
+
+/* Neural pulse thinking glow */
+.neural-pulse {
+  animation: pulse-cyan 2s infinite ease-in-out;
+}
+
+/* Fast gold active edge flow */
+.react-flow__edge.processing .react-flow__edge-path {
+  stroke-dasharray: 6 3;
+  animation: flow-dash 0.6s infinite linear;
+  stroke-width: 4;
+  stroke: #fbbf24 !important;
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.7));
+}
+
