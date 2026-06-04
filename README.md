@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# 🚀 Biome Symphony: Digital Twin v1.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**From Prompt to Production: Autonomous AI Agent Orchestration.**
 
-Currently, two official plugins are available:
+Biome Symphony is a production-ready, full-stack platform that enables developers to build, orchestrate, and deploy multi-agent AI systems using an interactive, 3D-styled node-based canvas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🛠️ The Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Biome Symphony is built to handle complex neural directives through a decoupled, event-driven pipeline.
 
-## Expanding the ESLint configuration
+* **Frontend:** A responsive, high-performance node canvas built with **React**, **Vite**, and **React Flow** for fluid UI/UX.
+* **Core Engine:** A secure **Node.js** backend that acts as the central orchestrator, managing payload routing, task queues, and external webhooks.
+* **Cognitive Layer:** Deep integration with the **Google Gemini API**, allowing agents to process, analyze, and execute complex workflows based on user directives.
+* **Deployment:** Fully containerized and deployed on **Vercel** (Frontend) and **Render** (Backend).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🏗️ Key Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* **Visual Orchestration:** Drag-and-drop nodes to create complex AI pipelines (Webhooks → Research Agent → Slack Dispatcher).
+* **Live Telemetry:** Real-time execution logs and status monitoring in the Inspector Panel.
+* **Agent Collaboration:** Multi-model support (Gemini 3.5 Flash/Pro) for specialized agent tasks.
+* **Extensible Logic:** Easily add custom triggers (Cron/Webhook) and action outputs (Database/Notifications).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Live Demo
+Experience the platform here: **[https://ai-agent-symphony.vercel.app](https://ai-agent-symphony.vercel.app)**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started (Local Development)
+
+### Prerequisites
+* Node.js (v18+)
+* npm or yarn
+* Gemini API Key
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/vishalmadargaon/ai-agent-symphony.git](https://github.com/vishalmadargaon/ai-agent-symphony.git)
+   cd ai-agent-symphony
