@@ -252,7 +252,7 @@ function App() {
 
     try {
       // Send flow data payload to Express backend server
-      const response = await fetch('http://localhost:5000/api/run-symphony', {
+       const response = await fetch('https://ai-agent-symphony-backend.onrender.com/api/run-symphony', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -315,7 +315,7 @@ function App() {
       // Start status polling
       pollInterval = setInterval(async () => {
         try {
-          const pollRes = await fetch(`http://localhost:5000/api/jobs/${jobId}`);
+          const pollRes = await fetch(`https://ai-agent-symphony-backend.onrender.com/api/jobs/${jobId}`);
           if (!pollRes.ok) {
             throw new Error(`Status query failed: HTTP ${pollRes.status}`);
           }
